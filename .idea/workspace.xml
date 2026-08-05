@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(db): add indexes">
-      <change beforePath="$PROJECT_DIR$/src/DB/0001_boards.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0001_boards.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/0002_columns.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0002_columns.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/0003_tasks.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0003_tasks.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/0004_labels.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0004_labels.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/0005_task_labels.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0005_task_labels.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/enable_extensions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0000_enable_extensions.sql" afterDir="false" />
+    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(docker ): update docker services">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0000_enable_extensions.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0001_boards.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0002_columns.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0003_tasks.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0004_labels.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0005_task_labels.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0006_update_timestamp_trigger.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +49,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "3-create-postgresql-schema",
+    "git-widget-placeholder": "22-setup-docker-compose-environment",
     "git.auto.fetch.suggestion.counter": "1",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
@@ -60,6 +65,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_interpreter_path": "wsl://Ubuntu@/usr/bin/node",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Docker",
     "ts.external.directory.path": "C:\\Users\\edvar\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -69,8 +75,25 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.Next.js: server-side">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\mily\funkban\src\DB\migrations" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
@@ -83,6 +106,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -100,7 +128,7 @@
       <updated>1785829473190</updated>
       <workItem from="1785829474247" duration="2830000" />
       <workItem from="1785849734484" duration="1578000" />
-      <workItem from="1785913673909" duration="2617000" />
+      <workItem from="1785913673909" duration="7996000" />
     </task>
     <task id="LOCAL-00001" summary="intial commit">
       <option name="closed" value="true" />
@@ -126,7 +154,31 @@
       <option name="project" value="LOCAL" />
       <updated>1785915514474</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(db):fix small errors, added a updated at trigger">
+      <option name="closed" value="true" />
+      <created>1785916340497</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1785916340497</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(docker setup):set up docker">
+      <option name="closed" value="true" />
+      <created>1785918999986</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1785918999986</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(docker ): update docker services">
+      <option name="closed" value="true" />
+      <created>1785919685117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1785919685117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +188,9 @@
     <MESSAGE value="intial commit" />
     <MESSAGE value="feat(db): add initial database schema migrations" />
     <MESSAGE value="feat(db): add indexes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(db): add indexes" />
+    <MESSAGE value="feat(db):fix small errors, added a updated at trigger" />
+    <MESSAGE value="feat(docker setup):set up docker" />
+    <MESSAGE value="feat(docker ): update docker services" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(docker ): update docker services" />
   </component>
 </project>
