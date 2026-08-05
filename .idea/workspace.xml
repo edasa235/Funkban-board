@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(db):fix small errors, added a updated at trigger" />
+    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(db):fix small errors, added a updated at trigger">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/script/run_migration.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/script/run_migration.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,12 +46,13 @@
   "keyToString": {
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.db.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "22-setup-docker-compose-environment",
+    "git-widget-placeholder": "6-setup-backend-api-structure",
     "git.auto.fetch.suggestion.counter": "1",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
@@ -55,7 +62,7 @@
     "nodejs_interpreter_path": "wsl://Ubuntu@/usr/bin/node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "Docker",
-    "ts.external.directory.path": "C:\\Users\\edvar\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "\\\\wsl$\\Ubuntu\\home\\mily\\funkban\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -69,12 +76,14 @@
       <recent name="\\wsl$\Ubuntu\home\mily\funkban\src\DB\migrations" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
