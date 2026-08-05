@@ -17,3 +17,19 @@ services:
       environment:
         SWAGGER_JSON: "/docs/openapi.yml"
       volumes:
+        - ./api/docs:/docs:ro
+
+  migrate:
+        image: postgres:18.3-alpine
+        depends_on:
+          - db
+        environment:
+          PGPASSWORD: ${POSTGRES_PASSWORD}
+        working_dir: /migrations
+        volumes:
+          - ./db/migrations:/migrations
+        entrypoint: >
+          sh -c "
+            sleep 3 &&
+            psql -h db -U ${POSTGRES_USER} -d ${POSTGRES_DB} -f run_all_migrations.sql
+          "
