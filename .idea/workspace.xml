@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="intial commit" />
+    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(db): add initial database schema migrations">
+      <change beforePath="$PROJECT_DIR$/src/DB/0002_columns.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0002_columns.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0003_tasks.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0003_tasks.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/0005_task_labels.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/0005_task_labels.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +97,7 @@
       <updated>1785829473190</updated>
       <workItem from="1785829474247" duration="2830000" />
       <workItem from="1785849734484" duration="1578000" />
-      <workItem from="1785913673909" duration="1488000" />
+      <workItem from="1785913673909" duration="1820000" />
     </task>
     <task id="LOCAL-00001" summary="intial commit">
       <option name="closed" value="true" />
@@ -103,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785912566847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(db): add initial database schema migrations">
+      <option name="closed" value="true" />
+      <created>1785915254405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1785915254405</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +123,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="intial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="intial commit" />
+    <MESSAGE value="feat(db): add initial database schema migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(db): add initial database schema migrations" />
   </component>
 </project>

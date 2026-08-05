@@ -4,3 +4,5 @@ CREATE TABLE columns (
                          name VARCHAR(50),
                          position INT
 );
+CREATE INDEX idx_columns_board_position
+    ON columns(board_id, position);
