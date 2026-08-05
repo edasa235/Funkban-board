@@ -4,5 +4,5 @@ CREATE TABLE task_labels (
 
                              PRIMARY KEY(task_id, label_id)
 );
-CREATE INDEX idx_task_labels_label_id
+CREATE INDEX idx_task_labels_id
     ON task_labels(label_id);
