@@ -13,30 +13,21 @@ export async function getLabelById(id: string) {
         .from(labels)
         .where(eq(labels.id, id))
         .limit(1);
-
     return result[0];
 }
 export async function createLabel(name: string) {
     const result = await db
         .insert(labels)
-        .values({
-            name
-        })
+        .values({name})
         .returning();
     return result[0];
 }
-export async function updateLabel(
-    id: string,
-    name: string
-) {
+export async function updateLabel(id: string, name: string) {
     const result = await db
         .update(labels)
-        .set({
-            name
-        })
+        .set({name})
         .where(eq(labels.id, id))
         .returning();
-
     return result[0];
 }
 export async function deleteLabel(id: string) {
@@ -44,6 +35,5 @@ export async function deleteLabel(id: string) {
         .delete(labels)
         .where(eq(labels.id, id))
         .returning();
-
     return result[0];
 }

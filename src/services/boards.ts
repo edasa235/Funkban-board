@@ -9,9 +9,7 @@ export async function getAllBoards() {
 export async function createBoard(name: string) {
     return db
         .insert(boards)
-        .values({
-            name: name
-        })
+        .values({name: name})
 }
 export async function updateboard ( id:string, name: string) {
     const result = await db

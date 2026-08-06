@@ -8,7 +8,6 @@ export async function getColumnsByBoardId(boardId: string) {
         .from(columns)
         .where(eq(columns.boardId, boardId));
 }
-//2. Get a single column'
 export async function getColumnById(columnId: string) {
     const result = await db
         .select()
@@ -17,13 +16,11 @@ export async function getColumnById(columnId: string) {
         .limit(1);
     return result[0];
 }
-//3. Create a column
 export async function createcolumn( data: { boardId: string, name: string, position: number }) {
    return db
    .insert(columns)
        .values(data);
 }
-//4. Update a column
 export async function updatecolumn(id: string, data: {
     name?: string;
     position?: number;
@@ -36,10 +33,7 @@ export async function updatecolumn(id: string, data: {
 
     return result[0];
 }
-export async function updateposistion(
-    id: string,
-    position: number
-) {
+export async function updateposistion(id: string, position: number) {
     return db
         .update(columns)
         .set({
