@@ -6,15 +6,16 @@ import {and, eq, ilike} from "drizzle-orm";
 export async function gettasksbycolumnid(columnId: string) {
     return db
         .select()
-        .from(columns)
-        .where(eq(columns.boardId, columnId));
+        .from(tasks)
+        .where(eq(tasks.columnId, columnId));
 }
-export async function gettaskbid(columnId: string) {
-    return db
-    .select()
-    .from(columns)
-    .where(eq(columns.id, columnId))
-    .limit(1);
+export async function getTaskById(taskId: string) {
+    const result = await db
+        .select()
+        .from(tasks)
+        .where(eq(tasks.id, taskId))
+        .limit(1);
+    return result[0];
 }
 export async function createTask(data: { title: string; description?: string; priority?: string; columnId: string; }) {
     const result = await db
