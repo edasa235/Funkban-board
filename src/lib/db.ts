@@ -1,10 +1,5 @@
-import dotenv from "dotenv";
 
-dotenv.config({
-    path: "/home/mily/funkban/.env"
-});
-
-console.log("DATABASE_URL:", process.env.DATABASE_URL);
+import "dotenv/config";
 
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
