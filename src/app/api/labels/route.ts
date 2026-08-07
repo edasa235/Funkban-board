@@ -1,8 +1,6 @@
-import { NextResponse } from "next/server";
-import {
-    getLabels,
-    createLabel
-} from "@/services/labels";
+import {NextResponse} from "next/server";
+import {createLabel, getLabels} from "@/services/labels";
+
 export async function GET() {
     try {
         const labels = await getLabels();
@@ -19,6 +17,7 @@ export async function GET() {
         );
     }
 }
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();
@@ -28,7 +27,7 @@ export async function POST(req: Request) {
                     error: "Name is required"
                 },
                 {
-                    status:400
+                    status: 400
                 }
             );
         }
@@ -36,17 +35,17 @@ export async function POST(req: Request) {
         return NextResponse.json(
             label,
             {
-                status:201
+                status: 201
             }
         );
-    } catch(error) {
+    } catch (error) {
         console.error(error);
         return NextResponse.json(
             {
-                error:"Failed to create label"
+                error: "Failed to create label"
             },
             {
-                status:500
+                status: 500
             }
         );
     }

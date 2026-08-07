@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat(db):fix small errors, added a updated at trigger">
+    <list default="true" id="562a24df-7c72-4d17-a9c0-967b8c9a0fa3" name="Changes" comment="feat( tasks  api): add tasks endpoint and fix tasks service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/openapi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/openapi.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DB/script/run_migration.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/script/run_migration.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/boards/[id]/columns/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/boards/[boardId]/columns/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/boards/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/boards/[boardId]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/boards/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/boards/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/columns/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/columns/[id]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/columns/tasks/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/columns/tasks/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/labels/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/labels/[id]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/labels/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/labels/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/tasks/[id]/move/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/tasks/[id]/move/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/tasks/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/tasks/[id]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="7-implement-board-endpoint" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,14 +63,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "JavaScript Debug.boards.executor": "Debug",
+    "JavaScript Debug.localhost:8080.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Node.js.db.ts.executor": "Run",
+    "Node.js.test-tb.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "6-setup-backend-api-structure",
+    "git-widget-placeholder": "12-setup-swagger-documentation",
     "git.auto.fetch.suggestion.counter": "1",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
@@ -76,8 +97,17 @@
       <recent name="\\wsl$\Ubuntu\home\mily\funkban\src\DB\migrations" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.localhost:8080">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="boards" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000/api/boards">
+      <method v="2" />
+    </configuration>
+    <configuration name="localhost:8080" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" working-dir="//wsl.localhost/Ubuntu/home/mily/funkban">
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
@@ -106,6 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.localhost:8080" />
+        <item itemvalue="JavaScript Debug.boards" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -160,7 +193,95 @@
       <option name="project" value="LOCAL" />
       <updated>1785916340497</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(setup drizzle): schema">
+      <option name="closed" value="true" />
+      <created>1786008137191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1786008137191</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat( drizzle): made simple drizlle queries for api calls">
+      <option name="closed" value="true" />
+      <created>1786015462744</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1786015462744</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat( drizzle): clean up code">
+      <option name="closed" value="true" />
+      <created>1786015703588</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1786015703588</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat( relation): set up relations and fix drizzle errors">
+      <option name="closed" value="true" />
+      <created>1786024055552</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1786024055552</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat( relation): clean up db.ts">
+      <option name="closed" value="true" />
+      <created>1786083452739</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1786083452739</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat( board api): created api routes and updated services">
+      <option name="closed" value="true" />
+      <created>1786087371416</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1786087371416</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat( board api): clean up code">
+      <option name="closed" value="true" />
+      <created>1786087782371</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1786087782371</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat( columns api): add columns endpoint and updated delete service">
+      <option name="closed" value="true" />
+      <created>1786091898083</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1786091898083</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat( columns api): add columns endpoint and updated delete service">
+      <option name="closed" value="true" />
+      <created>1786092585863</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1786092585863</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat( labels  api): add label endpoint and fix delete column api">
+      <option name="closed" value="true" />
+      <created>1786094586719</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1786094586719</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat( tasks  api): add tasks endpoint and fix tasks service">
+      <option name="closed" value="true" />
+      <created>1786104221277</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1786104221279</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +292,16 @@
     <MESSAGE value="feat(db): add initial database schema migrations" />
     <MESSAGE value="feat(db): add indexes" />
     <MESSAGE value="feat(db):fix small errors, added a updated at trigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(db):fix small errors, added a updated at trigger" />
+    <MESSAGE value="feat(setup drizzle): schema" />
+    <MESSAGE value="feat( drizzle): made simple drizlle queries for api calls" />
+    <MESSAGE value="feat( drizzle): clean up code" />
+    <MESSAGE value="feat( relation): set up relations and fix drizzle errors" />
+    <MESSAGE value="feat( relation): clean up db.ts" />
+    <MESSAGE value="feat( board api): created api routes and updated services" />
+    <MESSAGE value="feat( board api): clean up code" />
+    <MESSAGE value="feat( columns api): add columns endpoint and updated delete service" />
+    <MESSAGE value="feat( labels  api): add label endpoint and fix delete column api" />
+    <MESSAGE value="feat( tasks  api): add tasks endpoint and fix tasks service" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat( tasks  api): add tasks endpoint and fix tasks service" />
   </component>
 </project>
