@@ -33,11 +33,11 @@ export async function updatecolumn(id: string, data: {
 
     return result[0];
 }
-export async function updateposistion(id: string, position: number) {
-    return db
-        .update(columns)
-        .set({
-            position
-        })
-        .where(eq(columns.id, id));
+export async function deletecolumn(id: string) {
+    const result = await db
+    .delete(columns)
+    .where(eq(columns.id, id))
+    .returning();
+    return result[0];
+
 }
