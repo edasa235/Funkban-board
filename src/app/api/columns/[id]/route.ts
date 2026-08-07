@@ -28,4 +28,3 @@ export async function DELETE(
     const column = await deletecolumn(columnId);
 
     return NextResponse.json(column);
-}
