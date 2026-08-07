@@ -1,5 +1,6 @@
 import {deletecolumn, getColumnById, updatecolumn} from "@/services/columns";
 import {NextResponse} from "next/server";
+import {corsResponse} from "@/lib/cors";
 
 export async function GET(
     req: Request,
@@ -7,7 +8,7 @@ export async function GET(
 ) {
     const {columnId} = await params;
     const columns = await getColumnById(columnId);
-    return NextResponse.json(columns);
+    return corsResponse(NextResponse.json(columns));
 }
 
 export async function PATCH(req: Request,
@@ -19,7 +20,7 @@ export async function PATCH(req: Request,
         columnId,
         body
     );
-    return NextResponse.json(columns);
+    return corsResponse(NextResponse.json(columns));
 }
 
 export async function DELETE(
@@ -30,5 +31,5 @@ export async function DELETE(
 
     const column = await deletecolumn(columnId);
 
-    return NextResponse.json(column);
+    return corsResponse(NextResponse.json(column));
 }

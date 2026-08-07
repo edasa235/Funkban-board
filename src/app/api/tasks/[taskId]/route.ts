@@ -1,5 +1,6 @@
 import {NextResponse} from "next/server";
 import {deleteTask, getTaskById, updateTask} from "@/services/tasks";
+import {corsResponse} from "@/lib/cors";
 
 export async function GET(
     req: Request,
@@ -9,20 +10,21 @@ export async function GET(
         const {taskId} = await params;
         const task = await getTaskById(taskId);
         if (!task) {
-            return NextResponse.json(
+            return corsResponse(NextResponse.json(
                 {error: "Task not found"},
                 {status: 404}
-            );
+            ));
         }
-        return NextResponse.json(task);
+        return corsResponse(NextResponse.json(task));
     } catch (error) {
         console.error("Failed to get task:", error);
 
-        return NextResponse.json(
+        return corsResponse(NextResponse.json(
             {error: "Failed to get task"},
             {status: 500}
-        );
+        ));
     }
+
 }
 
 export async function PATCH(
@@ -41,20 +43,21 @@ export async function PATCH(
             }
         );
         if (!task) {
-            return NextResponse.json(
+            return corsResponse(NextResponse.json(
                 {error: "Task not found"},
                 {status: 404}
-            );
+            ));
         }
-        return NextResponse.json(task);
+        return corsResponse(NextResponse.json(task));
     } catch (error) {
         console.error("Failed to update task:", error);
 
-        return NextResponse.json(
+        return corsResponse(NextResponse.json(
             {error: "Failed to update task"},
             {status: 500}
-        );
+        ));
     }
+
 }
 
 export async function DELETE(
@@ -65,17 +68,18 @@ export async function DELETE(
         const {taskId} = await params;
         const task = await deleteTask(taskId);
         if (!task) {
-            return NextResponse.json(
+            return corsResponse(NextResponse.json(
                 {error: "Task not found"},
                 {status: 404}
-            );
+            ));
         }
-        return NextResponse.json(task);
+        return corsResponse(NextResponse.json(task));
     } catch (error) {
         console.error("Failed to delete task:", error);
-        return NextResponse.json(
+
+        return corsResponse(NextResponse.json(
             {error: "Failed to delete task"},
             {status: 500}
-        );
+        ));
     }
 }

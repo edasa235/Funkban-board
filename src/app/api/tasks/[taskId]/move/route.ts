@@ -1,5 +1,6 @@
 import {NextResponse} from "next/server";
 import {moveTask} from "@/services/tasks";
+import {corsResponse} from "@/lib/cors";
 
 
 export async function PATCH(
@@ -8,9 +9,11 @@ export async function PATCH(
 ) {
     const {taskId} = await params;
     const body = await req.json();
+
     const task = await moveTask(
         taskId,
         body.columnId
     );
-    return NextResponse.json(task);
+
+    return corsResponse(NextResponse.json(task));
 }
