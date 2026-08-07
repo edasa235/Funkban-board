@@ -26,9 +26,9 @@ export async function POST(req: Request) {
         const board = await createBoard(body.name);
         return NextResponse.json(board, { status: 201 });
     } catch (error) {
-        console.error("Failed to create board:", error);
+        console.error("Failed to create boards:", error);
         return NextResponse.json(
-            { error: "Failed to create board" },
+            { error: "Failed to create boards" },
             { status: 500 }
         );
     }

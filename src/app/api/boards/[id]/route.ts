@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {deleteBoard, getBoardById, updateboard} from "@/services/boards";
+import {deleteBoard, getBoardById, updateBoard} from "@/services/boards";
 export async function GET(
     request: Request,
     { params }: { params: Promise<{ boardId: string }> }
@@ -35,7 +35,7 @@ export async function PATCH(
                 }
             );
         }
-        const board = await updateboard(
+        const board = await updateBoard(
             boardId,
             body.name
         );
@@ -46,7 +46,7 @@ export async function PATCH(
 
         return NextResponse.json(
             {
-                error: "Failed to update board"
+                error: "Failed to update boards"
             },
             {
                 status: 500
@@ -69,7 +69,7 @@ export async function DELETE(
         console.error(error);
         return NextResponse.json(
             {
-                error: "Failed to delete board"
+                error: "Failed to delete boards"
             },
             {
                 status: 500

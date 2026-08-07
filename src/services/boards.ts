@@ -1,6 +1,6 @@
-import {db} from "@/lib/db";
-import {boards} from "@/DB/schema";
-import {eq} from "drizzle-orm";
+import { db } from "@/lib/db";
+import { boards } from "@/DB/schema";
+import { eq } from "drizzle-orm";
 export async function getAllBoards() {
     return db
         .select()
@@ -37,16 +37,20 @@ export async function createBoard(name: string) {
 
     return result[0];
 }
-export async function updateboard ( id:string, name: string) {
+export async function updateBoard(id: string, name: string) {
     const result = await db
         .update(boards)
-        .set({ name: name })
+        .set({
+            name
+        })
         .where(eq(boards.id, id))
+        .returning();
     return result[0];
 }
-export async function deleteBoard (id: string) {
+export async function deleteBoard(id: string) {
     const result = await db
-    .delete(boards)
-    .where(eq(boards.id, id))
+        .delete(boards)
+        .where(eq(boards.id, id))
+        .returning();
     return result[0];
 }
