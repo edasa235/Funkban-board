@@ -6,10 +6,36 @@ export async function getAllBoards() {
         .select()
         .from(boards);
 }
+export async function getBoardById(id: string) {
+    return db.query.boards.findFirst({
+        where: eq(boards.id, id),
+
+        with: {
+            columns: {
+                with: {
+                    tasks: {
+                        with: {
+                            taskLabels: {
+                                with: {
+                                    label: true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
 export async function createBoard(name: string) {
-    return db
+    const result = await db
         .insert(boards)
-        .values({name: name})
+        .values({
+            name
+        })
+        .returning();
+
+    return result[0];
 }
 export async function updateboard ( id:string, name: string) {
     const result = await db

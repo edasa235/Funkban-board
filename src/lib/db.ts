@@ -1,21 +1,20 @@
-
 import "dotenv/config";
 
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
 import * as schema from "@/DB/schema";
-import { boards } from "@/DB/schema";
+import * as relations from "@/lib/relations";
 
-const client = postgres(process.env.DATABASE_URL!);
+
+const client = postgres(
+    process.env.DATABASE_URL!
+);
+
 
 export const db = drizzle(client, {
-    schema,
+    schema: {
+        ...schema,
+        ...relations
+    }
 });
-
-async function test() {
-    const result = await db.select().from(boards);
-    console.log(result);
-}
-
-test();
