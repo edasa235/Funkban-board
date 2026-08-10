@@ -1,27 +1,39 @@
-import {integer, pgTable, primaryKey, text, timestamp, uuid, varchar} from "drizzle-orm/pg-core";
+
+import {
+    integer,
+    pgTable,
+    primaryKey,
+    text,
+    timestamp,
+    uuid,
+    varchar
+} from "drizzle-orm/pg-core";
 
 export const boards = pgTable("boards", {
     id: uuid("id").primaryKey().defaultRandom(),
     name: varchar("name", {
-        length: 255
+        length: 100
     }).notNull(),
     createdAt: timestamp("created_at")
         .defaultNow()
 });
+
 export const columns = pgTable("columns", {
     id: uuid("id")
         .primaryKey()
         .defaultRandom(),
     boardId: uuid("board_id")
-        .references(() => boards.id)
+        .references(() => boards.id, {
+            onDelete: "cascade"
+        })
         .notNull(),
     name: varchar("name", {
         length: 50
-    }).notNull(),
-
+    }),
     position: integer("position")
         .notNull()
 });
+
 export const tasks = pgTable("tasks", {
     id: uuid("id")
         .defaultRandom()
@@ -35,7 +47,7 @@ export const tasks = pgTable("tasks", {
 
     priority: varchar("priority", {
         length: 20
-    }),
+    }).notNull().default("Medium"),
 
     columnId: uuid("column_id")
         .references(() => columns.id)
@@ -47,6 +59,7 @@ export const tasks = pgTable("tasks", {
     updatedAt: timestamp("updated_at")
         .defaultNow()
 });
+
 export const labels = pgTable("labels", {
     id: uuid("id")
         .defaultRandom()
@@ -54,8 +67,9 @@ export const labels = pgTable("labels", {
 
     name: varchar("name", {
         length: 50
-    }).notNull()
+    }).notNull().unique()
 });
+
 export const taskLabels = pgTable(
     "task_labels",
     {
@@ -76,3 +90,4 @@ export const taskLabels = pgTable(
         })
     ]
 );
+

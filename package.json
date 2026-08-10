@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "tsx src/DB/seed.ts"
+
   },
   "dependencies": {
     "dotenv": "^17.4.2",
