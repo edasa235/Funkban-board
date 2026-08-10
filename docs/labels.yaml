@@ -1,0 +1,106 @@
+paths:
+
+  /api/labels:
+
+    get:
+      summary: Get all labels
+      tags:
+        - Labels
+      responses:
+        '200':
+          description: List of labels
+
+
+    post:
+      summary: Create a label
+      tags:
+        - Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  example: Bug
+      responses:
+        '201':
+          description: Label created
+        '400':
+          description: Name is required
+        '500':
+          description: Failed to create label
+
+
+  /api/labels/{labelId}:
+
+    get:
+      summary: Get a label by ID
+      tags:
+        - Labels
+      parameters:
+        - name: labelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Label found
+        '404':
+          description: Label not found
+
+
+    patch:
+      summary: Update a label
+      tags:
+        - Labels
+      parameters:
+        - name: labelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  example: Bug
+      responses:
+        '200':
+          description: Label updated
+        '400':
+          description: Name is required
+        '404':
+          description: Label not found
+
+
+    delete:
+      summary: Delete a label
+      tags:
+        - Labels
+      parameters:
+        - name: labelId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Label deleted
+        '404':
+          description: Label not found

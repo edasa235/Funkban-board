@@ -1,0 +1,194 @@
+paths:
+
+  /api/boards:
+
+    get:
+      summary: Get all boards
+
+      responses:
+        "200":
+          description: List of boards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "./openapi.yml#/components/schemas/Board"
+
+        "500":
+          description: Failed to get boards
+
+
+    post:
+      summary: Create a new board
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+
+              properties:
+                name:
+                  type: string
+                  example: "My Board"
+
+
+      responses:
+        "201":
+          description: Board created
+
+        "400":
+          description: Name is required
+
+        "500":
+          description: Server error
+
+
+
+  /api/boards/{boardId}:
+
+    get:
+      summary: Get board by ID
+
+      parameters:
+
+        - name: boardId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "1"
+
+
+      responses:
+
+        "200":
+          description: Board found
+
+          content:
+            application/json:
+              schema:
+                $ref: "./openapi.yml#/components/schemas/Board"
+
+
+        "404":
+          description: Board not found
+
+
+
+    patch:
+
+      summary: Update board
+
+
+      parameters:
+
+        - name: boardId
+          in: path
+          required: true
+          schema:
+            type: string
+
+
+      requestBody:
+
+        required: true
+
+        content:
+
+          application/json:
+
+            schema:
+
+              type: object
+
+              required:
+                - name
+
+              properties:
+
+                name:
+                  type: string
+                  example: "Updated Board"
+
+
+      responses:
+
+        "200":
+          description: Board updated
+
+
+        "400":
+          description: Name is required
+
+
+        "500":
+          description: Failed to update board
+
+
+
+    delete:
+
+      summary: Delete board
+
+
+      parameters:
+
+        - name: boardId
+          in: path
+          required: true
+
+          schema:
+            type: string
+
+
+      responses:
+
+        "200":
+          description: Board deleted
+
+
+        "500":
+          description: Failed to delete board
+
+
+
+
+  /api/boards/{boardId}/columns:
+
+    get:
+
+      summary: Get columns by board ID
+
+
+      parameters:
+
+        - name: boardId
+          in: path
+          required: true
+
+          schema:
+            type: string
+
+
+      responses:
+
+        "200":
+
+          description: List of columns
+
+          content:
+
+            application/json:
+
+              schema:
+
+                type: array
+
+                items:
+
+                  $ref: "./openapi.yml#/components/schemas/Column"

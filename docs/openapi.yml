@@ -1,14 +1,58 @@
 openapi: 3.1.0
+
 info:
-  title: funkban
+  title: Funkban API
+  description: REST API documentation for Funkban Kanban board
   version: 1.0.0
 
 servers:
   - url: http://localhost:3000
+    description: Local development server
+
+
 paths:
-  /api/tasks:
-    get:
-      summary: Get all tasks
-      responses:
-        "200":
-          description: List of tasks
+
+  /api/boards:
+    $ref: "./boards.yaml#/paths/~1api~1boards"
+
+  /api/boards/{boardId}:
+    $ref: "./boards.yaml#/paths/~1api~1boards~1{boardId}"
+
+  /api/boards/{boardId}/columns:
+    $ref: "./boards.yaml#/paths/~1api~1boards~1{boardId}~1columns"
+
+
+components:
+
+  schemas:
+
+    Board:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+
+        name:
+          type: string
+          example: "Development Board"
+
+
+    Column:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+
+        name:
+          type: string
+          example: "Todo"
+
+        position:
+          type: integer
+          example: 1
+
+        boardId:
+          type: integer
+          example: 1
