@@ -69,25 +69,27 @@ export const labels = pgTable("labels", {
         length: 50
     }).notNull().unique()
 });
-
 export const taskLabels = pgTable(
     "task_labels",
     {
         taskId: uuid("task_id")
-            .references(() => tasks.id)
+            .references(() => tasks.id, {
+                onDelete: "cascade",
+            })
             .notNull(),
 
         labelId: uuid("label_id")
-            .references(() => labels.id)
-            .notNull()
+            .references(() => labels.id, {
+                onDelete: "cascade",
+            })
+            .notNull(),
     },
     (table) => [
         primaryKey({
             columns: [
                 table.taskId,
-                table.labelId
-            ]
-        })
+                table.labelId,
+            ],
+        }),
     ]
 );
-

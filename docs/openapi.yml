@@ -9,9 +9,9 @@ servers:
   - url: http://localhost:3000
     description: Local development server
 
-
 paths:
 
+  # Boards
   /api/boards:
     $ref: "./boards.yaml#/paths/~1api~1boards"
 
@@ -22,6 +22,24 @@ paths:
     $ref: "./boards.yaml#/paths/~1api~1boards~1{boardId}~1columns"
 
 
+  # Columns
+  /api/columns/{columnId}:
+    $ref: "./columns.yaml#/paths/~1api~1columns~1{columnId}"
+
+  /api/columns/{columnId}/tasks:
+    $ref: "./columns.yaml#/paths/~1api~1columns~1{columnId}~1tasks"
+
+
+  # Tasks
+  /api/tasks/{taskId}:
+    $ref: "./tasks.yaml#/paths/~1api~1tasks~1{taskId}"
+
+
+  # Labels
+  /api/labels/{labelId}:
+    $ref: "./labels.yaml#/paths/~1api~1labels~1{labelId}"
+
+
 components:
 
   schemas:
@@ -30,29 +48,56 @@ components:
       type: object
       properties:
         id:
-          type: integer
-          example: 1
-
+          type: string
+          format: uuid
         name:
           type: string
-          example: "Development Board"
+          example: Development Board
 
 
     Column:
       type: object
       properties:
         id:
-          type: integer
-          example: 1
-
+          type: string
+          format: uuid
         name:
           type: string
-          example: "Todo"
-
+          example: Todo
         position:
           type: integer
-          example: 1
-
+          example: 0
         boardId:
-          type: integer
-          example: 1
+          type: string
+          format: uuid
+
+
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          example: Fix login bug
+        description:
+          type: string
+          example: Fix authentication issue
+        priority:
+          type: string
+          example: high
+        columnId:
+          type: string
+          format: uuid
+
+
+    Label:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: Bug

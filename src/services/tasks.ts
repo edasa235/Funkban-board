@@ -17,11 +17,17 @@ export async function getTaskById(taskId: string) {
         .limit(1);
     return result[0];
 }
-export async function createTask(data: { title: string; description?: string; priority?: string; columnId: string; }) {
+export async function createTask(data: {
+    title: string;
+    description?: string;
+    priority?: string;
+    columnId: string;
+}) {
     const result = await db
         .insert(tasks)
         .values(data)
         .returning();
+
     return result[0];
 }
 export async function updateTask(taskId: string, data: { title?: string; description?: string; priority?: string; }) {

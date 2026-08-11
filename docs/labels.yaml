@@ -1,106 +1,150 @@
-paths:
 
-  /api/labels:
+  paths:
 
-    get:
-      summary: Get all labels
-      tags:
-        - Labels
-      responses:
-        '200':
-          description: List of labels
+    /api/labels:
+
+      get:
+        summary: Get all labels
+        tags:
+          - Labels
+
+        responses:
+          '200':
+            description: List of labels
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "./openapi.yml#/components/schemas/Label"
+
+          '500':
+            description: Failed to retrieve labels
 
 
-    post:
-      summary: Create a label
-      tags:
-        - Labels
-      requestBody:
-        required: true
-        content:
-          application/json:
+      post:
+        summary: Create a label
+        tags:
+          - Labels
+
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    example: Bug
+
+        responses:
+          '201':
+            description: Label created
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Label"
+
+          '400':
+            description: Name is required
+
+          '500':
+            description: Failed to create label
+
+
+    /api/labels/{labelId}:
+
+      get:
+        summary: Get a label by ID
+        tags:
+          - Labels
+
+        parameters:
+          - name: labelId
+            in: path
+            required: true
+            description: ID of the label
             schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                  example: Bug
-      responses:
-        '201':
-          description: Label created
-        '400':
-          description: Name is required
-        '500':
-          description: Failed to create label
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440002"
+
+        responses:
+          '200':
+            description: Label found
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Label"
+
+          '404':
+            description: Label not found
 
 
-  /api/labels/{labelId}:
+      patch:
+        summary: Update a label
+        tags:
+          - Labels
 
-    get:
-      summary: Get a label by ID
-      tags:
-        - Labels
-      parameters:
-        - name: labelId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Label found
-        '404':
-          description: Label not found
-
-
-    patch:
-      summary: Update a label
-      tags:
-        - Labels
-      parameters:
-        - name: labelId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
+        parameters:
+          - name: labelId
+            in: path
+            required: true
+            description: ID of the label
             schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                  example: Bug
-      responses:
-        '200':
-          description: Label updated
-        '400':
-          description: Name is required
-        '404':
-          description: Label not found
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440002"
 
-
-    delete:
-      summary: Delete a label
-      tags:
-        - Labels
-      parameters:
-        - name: labelId
-          in: path
+        requestBody:
           required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Label deleted
-        '404':
-          description: Label not found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    example: Bug
+
+        responses:
+          '200':
+            description: Label updated
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Label"
+
+          '400':
+            description: Name is required
+
+          '404':
+            description: Label not found
+
+
+      delete:
+        summary: Delete a label
+        tags:
+          - Labels
+
+        parameters:
+          - name: labelId
+            in: path
+            required: true
+            description: ID of the label
+            schema:
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440002"
+
+        responses:
+          '200':
+            description: Label deleted
+
+          '404':
+            description: Label not found
