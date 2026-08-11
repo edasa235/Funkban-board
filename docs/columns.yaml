@@ -1,126 +1,184 @@
-paths:
 
-  /api/columns/{columnId}:
+  paths:
 
-    get:
-      summary: Get a column by ID
-      tags:
-        - Columns
-      parameters:
-        - name: columnId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Column found
-        '404':
-          description: Column not found
+    /api/columns/{columnId}:
 
+      get:
+        summary: Get a column by ID
+        tags:
+          - Columns
 
-    patch:
-      summary: Update a column
-      tags:
-        - Columns
-      parameters:
-        - name: columnId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
+        parameters:
+          - name: columnId
+            in: path
+            required: true
+            description: ID of the column
             schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Todo
-                position:
-                  type: integer
-                  example: 0
-      responses:
-        '200':
-          description: Column updated
-        '404':
-          description: Column not found
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440001"
+
+        responses:
+          '200':
+            description: Column found
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Column"
+
+          '404':
+            description: Column not found
 
 
-    delete:
-      summary: Delete a column
-      tags:
-        - Columns
-      parameters:
-        - name: columnId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Column deleted
-        '404':
-          description: Column not found
+      patch:
+        summary: Update a column
+        tags:
+          - Columns
 
-
-  /api/columns/{columnId}/tasks:
-
-    get:
-      summary: Get all tasks in a column
-      tags:
-        - Tasks
-      parameters:
-        - name: columnId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Tasks in the column
-
-
-    post:
-      summary: Create a task in a column
-      tags:
-        - Tasks
-      parameters:
-        - name: columnId
-          in: path
-          required: true
-          description: ID of the column
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
+        parameters:
+          - name: columnId
+            in: path
+            required: true
+            description: ID of the column
             schema:
-              type: object
-              required:
-                - title
-              properties:
-                title:
-                  type: string
-                  example: Fix login bug
-                description:
-                  type: string
-                  example: Fix authentication issue
-                priority:
-                  type: string
-                  example: high
-      responses:
-        '201':
-          description: Task created
-        '400':
-          description: Invalid task data
-        '404':
-          description: Column not found
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440001"
+
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Todo
+
+                  position:
+                    type: integer
+                    example: 0
+
+        responses:
+          '200':
+            description: Column updated
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Column"
+
+          '400':
+            description: Invalid column data
+
+          '404':
+            description: Column not found
+
+
+      delete:
+        summary: Delete a column
+        tags:
+          - Columns
+
+        parameters:
+          - name: columnId
+            in: path
+            required: true
+            description: ID of the column
+            schema:
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440001"
+
+        responses:
+          '200':
+            description: Column deleted
+
+          '404':
+            description: Column not found
+
+
+    /api/columns/{columnId}/tasks:
+
+      get:
+        summary: Get all tasks in a column
+        tags:
+          - Tasks
+
+        parameters:
+          - name: columnId
+            in: path
+            required: true
+            description: ID of the column
+            schema:
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440001"
+
+        responses:
+          '200':
+            description: Tasks in the column
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "./openapi.yml#/components/schemas/Task"
+
+          '404':
+            description: Column not found
+
+
+      post:
+        summary: Create a task in a column
+        tags:
+          - Tasks
+
+        parameters:
+          - name: columnId
+            in: path
+            required: true
+            description: ID of the column
+            schema:
+              type: string
+              format: uuid
+            example: "550e8400-e29b-41d4-a716-446655440001"
+
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - title
+                properties:
+                  title:
+                    type: string
+                    example: Fix login bug
+
+                  description:
+                    type: string
+                    example: Fix authentication issue
+
+                  priority:
+                    type: string
+                    enum:
+                      - Low
+                      - Medium
+                      - High
+                    example: High
+
+        responses:
+          '201':
+            description: Task created
+            content:
+              application/json:
+                schema:
+                  $ref: "./openapi.yml#/components/schemas/Task"
+
+          '400':
+            description: Invalid task data
+
+          '404':
+            description: Column not found

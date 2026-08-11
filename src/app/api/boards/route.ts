@@ -1,34 +1,56 @@
-import {createBoard, getAllBoards} from "@/services/boards";
-import {NextResponse} from "next/server";
-import {corsResponse} from "@/lib/cors";
+import { createBoard, getAllBoards } from "@/services/boards";
+import { NextResponse } from "next/server";
+import { corsResponse, optionsResponse } from "@/lib/cors";
+
+export async function OPTIONS() {
+    return optionsResponse();
+}
 
 export async function GET() {
-    const boards = await getAllBoards();
+    try {
+        const boards = await getAllBoards();
 
-    return corsResponse(
-        NextResponse.json(boards)
-    );
+        return corsResponse(
+            NextResponse.json(boards)
+        );
+    } catch (error) {
+        console.error("Failed to get boards:", error);
 
+        return corsResponse(
+            NextResponse.json(
+                { error: "Failed to get boards" },
+                { status: 500 }
+            )
+        );
+    }
 }
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
+
         if (!body.name || typeof body.name !== "string") {
             return corsResponse(
                 NextResponse.json(
-                    {error: "Name is required"},
-                    {status: 400}
+                    { error: "Name is required" },
+                    { status: 400 }
                 )
             );
         }
+
         const board = await createBoard(body.name);
-        return NextResponse.json(board, {status: 201});
+
+        return corsResponse(
+            NextResponse.json(board, { status: 201 })
+        );
     } catch (error) {
-        console.error("Failed to create boards:", error);
-        return NextResponse.json(
-            {error: "Failed to create boards"},
-            {status: 500}
+        console.error("Failed to create board:", error);
+
+        return corsResponse(
+            NextResponse.json(
+                { error: "Failed to create board" },
+                { status: 500 }
+            )
         );
     }
 }
