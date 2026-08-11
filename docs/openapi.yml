@@ -34,7 +34,11 @@ paths:
   /api/tasks/{taskId}:
     $ref: "./tasks.yaml#/paths/~1api~1tasks~1{taskId}"
 
+  /api/tasks/{taskId}/labels:
+    $ref: "./tasks.yaml#/paths/~1api~1tasks~1{taskId}~1labels"
 
+  /api/tasks/{taskId}/labels/{labelId}:
+    $ref: "./tasks.yaml#/paths/~1api~1tasks~1{taskId}~1labels~1{labelId}"
   # Labels
   /api/labels/{labelId}:
     $ref: "./labels.yaml#/paths/~1api~1labels~1{labelId}"
