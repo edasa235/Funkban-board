@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "tsx src/DB/script/seed.ts",
+    "seed": "tsx src/DB/seed.ts",
     "seed:docker": "docker compose run --rm app npm run seed",
     "test": "vitest"
 
