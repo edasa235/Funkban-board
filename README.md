@@ -1,56 +1,52 @@
-# Kanban Board Backend
+# Funkban
 
-## Om prosjektet
+Funkban er en prototype på en Kanban-tavle utviklet for å organisere oppgaver visuelt ved hjelp av boards, columns, tasks og labels.
 
-Dette prosjektet er en prototype av en backend for et Kanban-system. Backend-en er utviklet med **Next.js API** og **TypeScript**.
+Prosjektet er laget som en prototype og har ikke brukerinnlogging eller brukerkontoer.
 
-### Teknologier
+## 1. Hovedfunksjoner
 
-* **Next.js** – API og backend
-* **Drizzle ORM** – Kommunikasjon med databasen
-* **Swagger UI** – Dokumentasjon og testing av API-et
-* **Docker** – Containerisering av applikasjonen
-* **[Database]** – Database for lagring av data
+Funkban støtter følgende funksjoner:
 
-## Arkitektur
+- Opprette, redigere og slette boards
+- Opprette, redigere og slette columns
+- Opprette, redigere og slette tasks
+- Flytte tasks mellom columns
+- Opprette, redigere og slette labels
+- Tilordne labels til tasks
+- Fjerne labels fra tasks
 
-Applikasjonen fungerer slik:
+Andre funksjoner er ikke utviklet ennå.
 
-```text
-API → Drizzle ORM → Database
-```
+## 2. Teknologistakk
 
-Swagger UI brukes til å dokumentere og teste API-endepunktene.
+### Frontend
+- Next.js 
+- React
+- TypeScript
+- Tailwind CSS
 
-## Kjøre prosjektet
+### Backend
+- Next.js API Routes
+- TypeScript
 
-Prosjektet kan kjøres med Docker:
+### Database
+- PostgreSQL 18.3
+- Drizzle ORM
+
+### Dokumentasjon og API
+- Swagger UI
+- OpenAPI
+
+### Utviklingsmiljø
+- Docker
+- Docker Compose
+
+## 3. Hvordan kjøre prosjektet
+
+Funkban er satt opp til å kjøres med Docker. Lokal kjøring uten Docker er ikke testet.
+
+Start prosjektet med:
 
 ```bash
 docker compose up --build
-```
-
-Alternativt kan det kjøres lokalt med:
-
-```bash
-npm install
-npm run dev
-```
-
-## API-dokumentasjon
-
-Swagger UI er tilgjengelig på:
-
-```text
-http://localhost:[PORT]/[SWAGGER-PATH]
-```
-
-Her kan API-endepunktene ses og testes.
-
-## Docker
-
-Docker brukes for å containerisere applikasjonen. Dette gjør det enklere å kjøre prosjektet med samme oppsett uavhengig av utviklingsmiljø.
-
-## Formål
-
-Formålet med prosjektet er å lage en fungerende backend-prototype og demonstrere bruk av API-er, databasekommunikasjon, dokumentasjon og containerisering.
